@@ -1,5 +1,6 @@
 package com.matias.CarritoCompras.Exceptions;
 
+import com.matias.CarritoCompras.Exceptions.Products.AmountInvalid;
 import com.matias.CarritoCompras.Exceptions.Users.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException exception) {
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<String> handleUserNotFoundException(NotFoundException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 
@@ -46,6 +47,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AgeInvalid.class)
     public ResponseEntity<String> handleAgeInvalid(AgeInvalid exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+    }
+
+    @ExceptionHandler(AmountInvalid.class)
+    public ResponseEntity<String> handleAmountInvalid(AmountInvalid exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 

@@ -2,6 +2,7 @@ package com.matias.CarritoCompras.Servicies;
 
 import com.matias.CarritoCompras.Entities.Dtos.UserDto;
 import com.matias.CarritoCompras.Entities.User;
+import com.matias.CarritoCompras.Exceptions.NotFoundException;
 import com.matias.CarritoCompras.Exceptions.Users.*;
 import com.matias.CarritoCompras.Mappers.UserMapper;
 import com.matias.CarritoCompras.Repositories.UserRepository;
@@ -32,7 +33,7 @@ public class UserService {
     }
 
     public UserDto getUserById(Long id) {
-        User user = repository.findById(id).orElseThrow(() -> new UserNotFoundException("El usuario con id: " + id + " no ha sido encontrado"));
+        User user = repository.findById(id).orElseThrow(() -> new NotFoundException("El usuario con id: " + id + " no ha sido encontrado"));
         return UserMapper.userToDto(user);
     }
 
@@ -92,7 +93,7 @@ public class UserService {
 
             return UserMapper.userToDto(userModify);
         } else {
-            throw new UserNotFoundException("El usuario con id: " + id + " no ha sido encontrado");
+            throw new NotFoundException("El usuario con id: " + id + " no ha sido encontrado");
 
         }
     }
