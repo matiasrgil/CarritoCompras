@@ -7,10 +7,13 @@ public class ProductMapper {
 
     public static Product dtoToProduct(ProductDto dto){
         Product product = new Product();
+        product.setBarCode(dto.getBarCode());
         product.setName(dto.getName());
+        product.setBrand(dto.getBrand());
         product.setSize(dto.getSize());
-        product.setPriceUnit(dto.getPriceUnit());
-        product.setAmount(dto.getAmount());
+        product.setCategory(dto.getCategory());
+        product.setPrice(dto.getPrice());
+        product.setStock(dto.getStock());
 
         return product;
     }
@@ -18,11 +21,13 @@ public class ProductMapper {
     public static ProductDto productToDto(Product product){
         ProductDto dto = new ProductDto();
         dto.setId(product.getId());
+        dto.setBarCode(product.getBarCode());
         dto.setName(product.getName());
+        dto.setBrand(product.getBrand());
         dto.setSize(product.getSize());
-        dto.setPriceUnit(product.getPriceUnit());
-        dto.setAmount(product.getAmount());
-        dto.setPriceTotal(product.getPriceTotal());
+        dto.setCategory(product.getCategory());
+        dto.setPrice(product.getPrice());
+        dto.setStock(product.getStock());
 
         return dto;
     }

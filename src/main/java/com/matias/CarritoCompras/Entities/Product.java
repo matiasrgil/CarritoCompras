@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import java.math.BigDecimal;
 
@@ -22,21 +21,30 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "codigo_de_barras")
+    @Size(max = 13)
+    private Long barCode;
+
     @Column(name = "nombre")
     @Size(max = 50)
     private String name;
 
+    @Column(name = "marca")
+    @Size(max = 50)
+    private String brand;
+
     @Column(name = "tamaño")
     private String size; //tamaño de producto
 
-    @Column(name = "precioUnit")
-    private BigDecimal priceUnit; // precio de producto unitario
+    @Column(name = "categoria")
+    @Size(max = 20)
+    private String category;
 
-    @Column(name = "precioTotal")
-    private BigDecimal priceTotal; // precio por cantidad de productos
+    @Column(name = "precio")
+    private BigDecimal price; // precio de producto unitario
 
-    @Column(name = "cantidad")
-    private Integer amount; //Cantidad de producto
+    @Column(name = "stock")
+    private Long stock; //Cantidad de producto
 
     
 

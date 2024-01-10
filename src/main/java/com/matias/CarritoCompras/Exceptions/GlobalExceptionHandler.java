@@ -1,6 +1,5 @@
 package com.matias.CarritoCompras.Exceptions;
 
-import com.matias.CarritoCompras.Exceptions.Products.AmountInvalid;
 import com.matias.CarritoCompras.Exceptions.Users.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,11 +46,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AgeInvalid.class)
     public ResponseEntity<String> handleAgeInvalid(AgeInvalid exception) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
-    }
-
-    @ExceptionHandler(AmountInvalid.class)
-    public ResponseEntity<String> handleAmountInvalid(AmountInvalid exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
 

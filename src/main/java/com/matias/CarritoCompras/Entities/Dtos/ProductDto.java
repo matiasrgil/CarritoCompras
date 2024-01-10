@@ -15,10 +15,12 @@ import java.math.BigDecimal;
 public class ProductDto {
 
     private Long id;
+    private Long barCode;
     private String name;
+    private String brand;
     private String size;
-    private BigDecimal priceUnit;
-    private BigDecimal priceTotal;
-    private Integer amount;
+    private String category;
+    private BigDecimal price;
+    private Long stock;
 
 }
